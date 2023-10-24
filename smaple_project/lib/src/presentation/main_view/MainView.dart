@@ -148,7 +148,8 @@ class _MainViewState extends State<MainView> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 22),
                         child: ClipPath(
-                            clipper: BuyTicketClipper(),
+                          //to add curve in drawer
+                            // clipper: BuyTicketClipper(),
                             child: Container(
                               color: AppColor.primaryColor,
                               child: const ClipRRect(
@@ -217,30 +218,31 @@ class _MainViewState extends State<MainView> {
                           ),
                       ],
                     ),
-                    Positioned(
-                      right: 0,
-                      top: MediaQuery.of(context).size.height/2 - 80,
-                      //top: MediaQuery.of(context).size.height
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          height: 44,
-                          width: 44,
-                          padding: EdgeInsets.zero,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColor.primaryColor,
-                          ),
-                          child: const Center(
-                              child: Image(
-                                image: ImageString.close,
-                                color: Colors.white,
-                              )),
-                        ),
-                      ),
-                    ),
+                    //to add cross button
+                    // Positioned(
+                    //   right: 0,
+                    //   top: MediaQuery.of(context).size.height/2 - 80,
+                    //   //top: MediaQuery.of(context).size.height
+                    //   child: GestureDetector(
+                    //     onTap: () {
+                    //       Navigator.pop(context);
+                    //     },
+                    //     child: Container(
+                    //       height: 44,
+                    //       width: 44,
+                    //       padding: EdgeInsets.zero,
+                    //       decoration: const BoxDecoration(
+                    //         shape: BoxShape.circle,
+                    //         color: AppColor.primaryColor,
+                    //       ),
+                    //       child: const Center(
+                    //           child: Image(
+                    //             image: ImageString.close,
+                    //             color: Colors.white,
+                    //           )),
+                    //     ),
+                    //   ),
+                    // ),
                     const Align(
                       alignment: Alignment(.5, 0),
                     )
@@ -297,7 +299,7 @@ class BuyTicketClipper extends CustomClipper<Path> {
 
     //path.addOval(Rect.fromCircle(center: Offset(0.0, size.height/1.6), radius: 20.0));
     path.addOval(
-        Rect.fromCircle(center: Offset(size.width + 4, size.height/2), radius: 50.0));
+        Rect.fromCircle(center: Offset(size.width + 4, size.height/2-20), radius: 50.0));
 
     return path;
   }
